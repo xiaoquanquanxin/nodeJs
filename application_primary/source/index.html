@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="ajax.js"></script>
+用户<input type="text" id="user"><br>
+密码<input type="password" id="pass"><br>
+<button id="regBtn">注册</button>
+<button id="loginBtn">登录</button>
+<script>
+	var user = document.getElementById('user');
+	var pass = document.getElementById('pass');
+	var regBtn = document.getElementById('regBtn');
+	var loginBtn = document.getElementById('loginBtn');
+	regBtn.onclick = function () {
+		ajax_method('/user', {act: 'reg', user: user.value, 'pass': pass.value}, 'get', function (res) {
+			var json = JSON.parse(res);
+			console.log(json);
+		});
+	};
+	loginBtn.onclick = function () {
+		ajax_method('/user', {act: 'login', user: user.value, 'pass': pass.value}, 'get', function (res) {
+			var json = JSON.parse(res);
+			console.log(json);
+		});
+	};
+
+</script>
+</body>
+</html>

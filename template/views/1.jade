@@ -1,0 +1,53 @@
+doctype
+html
+    head
+        meta(charset='utf-8')
+        title myhouse
+        script(src='a.js')
+        script alert(123)
+        script
+            | window.onload = function(){
+            | var btn = document.createElement('button');
+            | btn.innerHTML = '按钮'
+            | document.body.appendChild(btn);
+            | }
+        link(href='a.css', ref='stylesheet')
+        script
+            include ../template.js
+    body
+        ul
+            li
+                a(href='http://www.baidu.com') 百度一下
+            li li
+                span span
+            li(style='color:red')
+            li(style={'color': 'green'})
+            li(class=['aaa', 'bbb'])
+        p#p
+        div.ncaa.bbb
+        div&attributes({title: 'james', 'class': ['aaa', 'wsl']})
+        span
+            div 123
+        custom-tag 自定义标签
+        | james
+        div 我的名字是:#{name}
+        -var a = 11;
+        -var b = 10;
+        div(style=style) 结果是 #{a + b}
+        div=a + b
+        -for(var i = 0; i < arr.length;i++)
+            div=arr[i]
+        div!=content
+        case switch_case
+            when 0
+                div 0
+            when 1
+                div 1
+        if switch_case === 1
+            div 1111
+        else
+            div 2222
+
+
+
+

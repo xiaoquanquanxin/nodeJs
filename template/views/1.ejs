@@ -1,0 +1,25 @@
+<html>
+<head>
+    <style></style>
+    <script></script>
+</head>
+<body>
+我的名字:<%= name %>
+<%= arr[0] %>
+<% for(var i = 0 ;i < arr.length;i++){ %>
+<div><%= arr[i] %></div>
+<% } %>
+
+<%= 12 %>+<%= 12 %>
+<%= 12 + 12 %>
+<%
+var str = '<div>原样输出</div>'
+%>
+<%- str %>
+<% include ../template.js %>
+<%=type%>
+<% if(type === 'admin'){ %>
+<% include ../template.js %>
+<% } %>
+</body>
+</html>
