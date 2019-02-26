@@ -176,11 +176,53 @@ ejs
 3.include关键字后面的内容,不会判断是变量还是什么,永远都识别为路径
 
 
+/-------------------
+路由
+是express的一部分,相当于一个迷你版的server
+他也可以像server那样,get,post,use
+
+作用:把大服务拆小了
+
+过程:
+1.创建router
+2.把router添加到server
+3.router内部进行功能
+
+/---------------------------------
+数据基本单位
+1.库 / 文件夹
+2.表 / 文件,数据
+
+主键:每个数据的唯一标识符,唯一/性能最高
+
+nodeJs本身不支持MySQL,需要require
 
 
 /-------------------------------------------------
 数据库
+数据库分为:
+客户端
+服务端
 
+node的mysql模块是客户端
+node过程:
+1.链接服务器
+2.查询
+
+SQL语句
+SQL:Structured Query Language,构化查询语言
+关键字大写以示区分
+库名,表名,字段都加上``
+四大查询语句:增删改查 insert,delete,update,select
+增:
+INSERT INTO 表 (字段列表) VALUES(值列表)
+INSERT INTO `user_table` (`ID`,`username`,`password`) VALUES(0,'blue','aaa')
+
+
+
+查:
+SELECT 什么 FROM 表
+SELECT * FROM `user_table`
 
 
 /----------------------
