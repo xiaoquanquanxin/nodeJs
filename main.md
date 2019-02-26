@@ -255,9 +255,7 @@ SELECT * FROM `user_table`
 连接池
 问题:每次请求,都要进行连接数据库,消耗性能
 解:保持多个连接--连接池
-
-
-
+mysql.createPool({})
 
 
 

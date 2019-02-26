@@ -41,7 +41,7 @@ server.set('views', './template');
 server.engine('html', consolidate.ejs);
 
 //接收用户请求
-server.get('/', (req, res) => {
+server.get('/index', (req, res) => {
 	console.log(req.url);
 	//查询banner的东西
 	db.query("SELECT * FROM banner_table", (err, data) => {
