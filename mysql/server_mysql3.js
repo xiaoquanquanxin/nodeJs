@@ -80,7 +80,18 @@ server.get('/index', (req, res)=> {
 });
 server.get('/article', (req, res, next)=> {
     if (req.query.id) {
-        next();
+        //  是否有赞
+        if (req.query.act === 'like') {
+            db.query(`UPDATE article_table SET n_like=n_like+1 WHERE ID=${req.query.id}`, (err, data)=> {
+                if (err) {
+                    res.status(500).send('database article_table error');
+                } else {
+                    next();
+                }
+            });
+        } else {
+            next();
+        }
     } else {
         res.send('无内容');
     }
