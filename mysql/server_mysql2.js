@@ -7,6 +7,9 @@ const multer = require('multer');
 const consolidate = require('consolidate');
 const mysql = require('mysql');
 
+
+const timeFormat = require('./time_format');
+
 //连接池
 const db = mysql.createPool({
     host: 'localhost',
@@ -55,7 +58,7 @@ server.get('/index', (req, res, next) => {
 });
 server.get('/index', (req, res, next) => {
     //查询banner的东西
-    db.query("SELECT `title`,`summary` FROM article_table", (err, data) => {
+    db.query("SELECT `title`,`summary`,`ID` FROM article_table", (err, data) => {
         if (err) {
             console.log(err);
             res.status(500).send('database error').end();
@@ -70,9 +73,37 @@ server.get('/index', (req, res)=> {
         if (err) {
             console.log(err)
         } else {
+            console.log(data);
             res.render('index.ejs', {banners: res.banners, article: res.article});
         }
     })
+});
+server.get('/article', (req, res, next)=> {
+    if (req.query.id) {
+        next();
+    } else {
+        res.send('无内容');
+    }
+});
+server.get('/article', (req, res)=> {
+    db.query(`SELECT * FROM article_table WHERE ID=${req.query.id}`, (err, data) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send('database article_table error');
+        } else {
+            let articleData = data[0];
+            if (articleData) {
+                let time = timeFormat.time2date(articleData.post_time);
+                articleData.post_time = `${time.year}-${time.month}-${time.date} ${time.hour}:${time.minutes}:${time.second}`;
+                //articleData.post_time = articleData.post_time;
+                res.render('conText.ejs', {
+                    articleData: articleData,
+                })
+            } else {
+                res.send('无内容');
+            }
+        }
+    });
 });
 
 

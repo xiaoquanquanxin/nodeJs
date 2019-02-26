@@ -16,9 +16,9 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <link href="css/base.css" rel="stylesheet" type="text/css">
-    <link href="css/index.css" rel="stylesheet" type="text/css">
-    <script src="js/font.js"></script>
+    <link href="/css/base.css" rel="stylesheet" type="text/css">
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <script src="/js/font.js"></script>
     <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="js/swipe.js"></script>
     <script>
@@ -64,54 +64,14 @@
     </div>
     <div class="newsList">
         <ul>
+            <% for(var i = 0 ;i < article.length;i++){ %>
             <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
+                <a href="/article?id=<%= article[i].ID %>">
+                    <h2><%=article[i].title%></h2>
+                    <p><%=article[i].summary%></p>
                 </a>
             </li>
-            <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
-                </a>
-            </li>
-            <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
-                </a>
-            </li>
-            <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
-                </a>
-            </li>
-            <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
-                </a>
-            </li>
-            <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
-                </a>
-            </li>
-            <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
-                </a>
-            </li>
-            <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
-                </a>
-            </li>
+            <% }%>
         </ul>
     </div>
 </div>
