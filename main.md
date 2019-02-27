@@ -214,15 +214,27 @@ SQL:Structured Query Language,构化查询语言
 关键字大写以示区分
 库名,表名,字段都加上``
 四大查询语句:增删改查 insert,delete,update,select
-增:
+增:  INSERT INTO 表 VALUES
 INSERT INTO 表 (字段列表) VALUES(值列表)
 INSERT INTO `user_table` (`ID`,`username`,`password`) VALUES(0,'blue','aaa')
 
-
-
-查:
-SELECT 什么 FROM 表
+删   DELETE xx FROM 表 WHERE
+改:  UPDATE 表 SET key=value,key=value WHERE
+查:  SELECT xx FROM 表
 SELECT * FROM `user_table`
+
+子语句
+条件
+WHERE a='x' AND b>'x' OR c<='c'
+排序
+ORDER BY xx ASC/DESC 升序/降序
+    exp:按a升序,再按b降序
+ORDER BY a ASC, b DESC
+合并同类,以xx为依据
+COUNT
+SELECT * FROM 表 GROUP BY 条件
+
+
 
 
 /----------------------
@@ -256,33 +268,3 @@ SELECT * FROM `user_table`
 问题:每次请求,都要进行连接数据库,消耗性能
 解:保持多个连接--连接池
 mysql.createPool({})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
